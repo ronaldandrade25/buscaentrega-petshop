@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motorista • RA Pet Shop</title>
+
+    <!-- Fontes / Ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Fundo decorativo -->
+    <div class="page-bg"></div>
+
+    <!-- App -->
+    <div class="driver-app">
+        <!-- Topbar -->
+        <header class="driver-topbar">
+            <div class="driver-brand">
+                <div class="driver-brand-icon">
+                    <i class="bx bx-map-pin"></i>
+                </div>
+
+                <div class="driver-brand-text">
+                    <strong>RA Pet Shop</strong>
+                    <span>Painel do Motorista</span>
+                </div>
+            </div>
+
+            <div class="driver-topbar-right">
+                <div class="driver-date-pill">
+                    <i class="bx bx-calendar"></i>
+                    <span id="driverTodayLabel">Carregando data...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Conteúdo -->
+        <main class="driver-main">
+            <!-- Hero -->
+            <section class="driver-hero card-surface">
+                <div class="driver-hero-content">
+                    <span class="driver-badge">Agenda de rotas</span>
+                    <h1>Buscas e entregas do dia</h1>
+                    <p>
+                        Visualize os clientes agendados, altere status, confirme etapas da rota
+                        e abra os detalhes completos de cada atendimento.
+                    </p>
+                </div>
+
+                <div class="driver-hero-icon">
+                    <i class="bx bx-car"></i>
+                </div>
+            </section>
+
+            <!-- Filtros -->
+            <section class="driver-filters card-surface">
+                <div class="field">
+                    <label for="motData">Data</label>
+                    <input type="date" id="motData" />
+                </div>
+
+                <div class="field">
+                    <label for="motStatus">Status</label>
+                    <select id="motStatus">
+                        <option value="">Todos</option>
+                        <option value="busca">Busca</option>
+                        <option value="no-local">No local</option>
+                        <option value="saiu-para-entrega">Saiu para entrega</option>
+                        <option value="entregue">Entregue</option>
+                    </select>
+                </div>
+
+                <div class="field field-search">
+                    <label for="motBusca">Buscar cliente / endereço / contato</label>
+                    <div class="input-icon-wrap">
+                        <i class="bx bx-search"></i>
+                        <input id="motBusca" type="text"
+                            placeholder="Digite o nome do cliente, telefone ou endereço" />
+                    </div>
+                </div>
+
+                <div class="field actions-field">
+                    <label>&nbsp;</label>
+                    <div class="actions">
+                        <button id="motFiltrarBtn" class="btn btn-primary" type="button">
+                            <i class="bx bx-search-alt-2"></i>
+                            Filtrar
+                        </button>
+
+                        <button id="motLimparBtn" class="btn btn-light" type="button">
+                            <i class="bx bx-eraser"></i>
+                            Limpar
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resumo -->
+            <section class="driver-summary">
+                <article class="summary-card card-surface">
+                    <div class="summary-icon">
+                        <i class="bx bx-list-ul"></i>
+                    </div>
+                    <div class="summary-info">
+                        <span>Total de rotas</span>
+                        <strong id="kpiTotalRotas">0</strong>
+                    </div>
+                </article>
+
+                <article class="summary-card card-surface">
+                    <div class="summary-icon">
+                        <i class="bx bx-time-five"></i>
+                    </div>
+                    <div class="summary-info">
+                        <span>Pendentes</span>
+                        <strong id="kpiPendentes">0</strong>
+                    </div>
+                </article>
+
+                <article class="summary-card card-surface">
+                    <div class="summary-icon">
+                        <i class="bx bx-current-location"></i>
+                    </div>
+                    <div class="summary-info">
+                        <span>No local</span>
+                        <strong id="kpiNoLocal">0</strong>
+                    </div>
+                </article>
+
+                <article class="summary-card card-surface">
+                    <div class="summary-icon">
+                        <i class="bx bx-check-circle"></i>
+                    </div>
+                    <div class="summary-info">
+                        <span>Entregues</span>
+                        <strong id="kpiEntregues">0</strong>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Layout principal -->
+            <section class="driver-layout">
+                <!-- Agenda -->
+                <div class="driver-agenda card-surface">
+                    <div class="card-header">
+                        <div>
+                            <h2>Agenda do motorista</h2>
+                            <p>Rotas organizadas por horário para facilitar a execução do dia.</p>
+                        </div>
+
+                        <button id="motAtualizarBtn" class="btn btn-light" type="button">
+                            <i class="bx bx-refresh"></i>
+                            Atualizar
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        <div id="motoristaAgendaGrid" class="motorista-grid">
+                            <div class="motorista-empty-card">
+                                <i class="bx bx-loader-alt bx-spin"></i>
+                                <span>Carregando agenda...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista -->
+                <div class="driver-list card-surface">
+                    <div class="card-header">
+                        <div>
+                            <h2>Lista de rotas</h2>
+                            <p>Visualização rápida com status, horário e cliente.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div id="motoristaLista" class="driver-route-list">
+                            <div class="motorista-empty-list">
+                                <i class="bx bx-loader-alt bx-spin"></i>
+                                <span>Carregando rotas...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="mainModal" class="modal hidden">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <h3 id="modalTitle">Detalhes da rota</h3>
+                <button id="modalClose" class="icon-btn" type="button">
+                    <i class="bx bx-x"></i>
+                </button>
+            </div>
+
+            <div id="modalBody" class="modal-body"></div>
+
+            <div id="modalFooter" class="modal-footer"></div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script type="module" src="motorista.js"></script>
+</body>
+
+</html>
