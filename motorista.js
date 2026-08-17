@@ -17,12 +17,12 @@ import {
 
 /* ========= Firebase ========= */
 const firebaseConfig = {
-    apiKey: "AIzaSyCmjtUsxKgXQd35xp2gk4Ap0QlYmGWEGYI",
-    authDomain: "petshop-90f21.firebaseapp.com",
-    projectId: "petshop-90f21",
-    storageBucket: "petshop-90f21.firebasestorage.app",
-    messagingSenderId: "746188747686",
-    appId: "1:746188747686:web:d95433d74e8e4291ff9567"
+    apiKey: "", // COLOQUE_SUA_API_KEY_AQUI
+    authDomain: "", // COLOQUE_SEU_AUTH_DOMAIN_AQUI
+    projectId: "", // COLOQUE_SEU_PROJECT_ID_AQUI
+    storageBucket: "", // COLOQUE_SEU_STORAGE_BUCKET_AQUI
+    messagingSenderId: "", // COLOQUE_SEU_MESSAGING_SENDER_ID_AQUI
+    appId: "" // COLOQUE_SEU_APP_ID_AQUI
 };
 
 const app = initializeApp(firebaseConfig);
