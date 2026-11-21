@@ -6,7 +6,7 @@ Painel do **motorista** do pet shop: mostra a agenda de **buscas e entregas** do
 
 ```
  ADM (adm-petshop)  ──cria/edita──►  Firestore: busca_entrega  ◄──lê/atualiza status──  Motorista (este)
- aba Busca e Entrega                 projeto petshop-90f21                               buscaentrega-petshop
+ aba Busca e Entrega                 projeto operacao50k                               buscaentrega-petshop
 ```
 
 ## Funcionalidades
@@ -37,13 +37,13 @@ Painel do **motorista** do pet shop: mostra a agenda de **buscas e entregas** do
 Os projetos só conversam se usarem **o mesmo `firebaseConfig`** (mesmo `projectId`).
 
 ### 1. Configurar este projeto
-O `firebaseConfig` em `motorista.js` está com **campos vazios** (placeholders). Cole o mesmo objeto usado pelo ADM do pet shop (`adm-petshop/firebase.js`, projeto **`petshop-90f21`**):
+O `firebaseConfig` em `motorista.js` está com **campos vazios** (placeholders). Cole o mesmo objeto usado pelo ADM do pet shop (`adm-petshop/firebase.js`, projeto **`operacao50k`**):
 
 ```js
 const firebaseConfig = {
   apiKey: "...",
-  authDomain: "petshop-90f21.firebaseapp.com",
-  projectId: "petshop-90f21",
+  authDomain: "operacao50k.firebaseapp.com",
+  projectId: "operacao50k",
   storageBucket: "...",
   messagingSenderId: "...",
   appId: "..."
@@ -93,7 +93,7 @@ Ou use a extensão **Live Server** do VS Code. Para publicar: Vercel, Netlify, F
 
 ## Checklist de integração
 
-- [ ] Firestore ativado no projeto `petshop-90f21`
+- [ ] Firestore ativado no projeto `operacao50k`
 - [ ] `firebaseConfig` de `motorista.js` **idêntico** ao do `adm-petshop`
 - [ ] Regras permitem ler e atualizar `busca_entrega`
 - [ ] Criar uma busca na aba **Busca e Entrega** do ADM e conferir que aparece na agenda do motorista
